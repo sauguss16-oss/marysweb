@@ -1,183 +1,44 @@
-/* --- Configuración General --- */
-:root {
-  --marys-red: #b30000;
-  --marys-yellow: #ffcc00;
-  --marys-white: #ffffff;
-  --marys-dark: #1a1a1a;
-  --marys-aqua: #00bcd4;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Space Grotesk', sans-serif;
-  line-height: 1.6;
-  color: var(--marys-dark);
-  background-color: #f9f9f9;
-}
-
-/* --- Encabezado --- */
-.main-header {
-  background: var(--marys-white);
-  padding: 1rem 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.nav-logo { height: 50px; }
-
-nav a {
-  text-decoration: none;
-  color: var(--marys-dark);
-  margin-left: 20px;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-nav a:hover { color: var(--marys-red); }
-
-/* --- Secciones --- */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 20px;
-}
-
-.segment-red { background-color: var(--marys-red); color: white; }
-.segment-white { background-color: var(--marys-white); }
-.segment-yellow { background-color: var(--marys-yellow); }
-
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-}
-
-.section-title.white { color: white; }
-.section-title.sub { font-size: 1.8rem; margin-top: 50px; }
-
-/* --- Hero Section --- */
-.hero-container {
-  display: flex;
-  align-items: center;
-  min-height: 80vh;
-  padding: 0 5%;
-}
-
-.hero-content { flex: 1; }
-.logo-main { max-width: 300px; margin-bottom: 20px; }
-.presentation-text { font-size: 1.2rem; margin-bottom: 30px; font-style: italic; }
-
-.hero-image { flex: 1; text-align: center; }
-.floating-img {
-  max-width: 80%;
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
-/* --- Botones --- */
-.btn-cta {
-  display: inline-block;
-  padding: 12px 30px;
-  background: var(--marys-yellow);
-  color: var(--marys-dark);
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 700;
-  margin-right: 15px;
-  transition: 0.3s;
-}
-
-.btn-cta.outline {
-  background: transparent;
-  border: 2px solid var(--marys-white);
-  color: var(--marys-white);
-}
-
-.btn-cta:hover { transform: scale(1.05); }
-
-/* --- Grid y Tarjetas de Producto --- */
-.grid-display {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
+/* Configuración para que la tarjeta no tenga bordes internos estorbando */
 .product-card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  transition: 0.3s;
-  text-align: center;
-  padding: 20px;
-  border: 1px solid #eee;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden; /* Esto hace que la imagen respete las curvas de la tarjeta */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    padding: 0 !important; /* ELIMINA EL BORDE BLANCO ALREDEDOR DE LA IMAGEN */
+    display: flex;
+    flex-direction: column;
 }
 
-.product-card:hover { transform: translateY(-10px); }
-
+/* Hace que la imagen sea el centro de atención y ocupe todo el ancho */
 .product-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-  margin-bottom: 15px;
+    width: 100% !important;
+    height: auto;
+    display: block;
+    margin: 0;
 }
 
-.product-card h3 { margin-bottom: 10px; color: var(--marys-red); }
+/* Le da aire al texto para que no se pegue a las orillas, pero deja la imagen grande */
+.p-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.p-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.p-info p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
 .price {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--marys-dark);
-  margin-top: 10px;
-}
-
-/* --- Tarjetas Mini (Extras) --- */
-.product-card.mini { padding: 15px; }
-.product-card.mini img { height: 100px; }
-.product-card.mini h4 { font-size: 1rem; }
-
-/* --- Sucursales --- */
-.loc-card {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  padding: 25px;
-  border-radius: 15px;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-.loc-img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
-
-.btn-aqua {
-  display: block;
-  background: var(--marys-aqua);
-  color: white;
-  text-decoration: none;
-  padding: 8px;
-  border-radius: 5px;
-  margin-top: 10px;
-  font-size: 0.9rem;
-}
-
-/* --- Responsivo --- */
-@media (max-width: 768px) {
-  .hero-container { flex-direction: column; text-align: center; padding-top: 50px; }
-  .main-header { flex-direction: column; }
-  nav { margin-top: 15px; }
-  nav a { margin: 0 10px; font-size: 0.9rem; }
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #e41e26; /* Color rojo para resaltar el precio */
+    display: block;
 }
