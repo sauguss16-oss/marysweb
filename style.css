@@ -1,44 +1,57 @@
-/* Configuración para que la tarjeta no tenga bordes internos estorbando */
-.product-card {
-    background: #fff;
-    border-radius: 15px;
-    overflow: hidden; /* Esto hace que la imagen respete las curvas de la tarjeta */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    padding: 0 !important; /* ELIMINA EL BORDE BLANCO ALREDEDOR DE LA IMAGEN */
-    display: flex;
-    flex-direction: column;
+:root {
+    --rojo: #bd161c;
+    --amarillo: #f3b412;
+    --oscuro: #1a1a1a;
+    --gris: #f8f8f8;
 }
 
-/* Hace que la imagen sea el centro de atención y ocupe todo el ancho */
-.product-card img {
-    width: 100% !important;
-    height: auto;
-    display: block;
-    margin: 0;
-}
+body { font-family: 'Roboto', sans-serif; margin: 0; padding-top: 140px; background: #fff; }
 
-/* Le da aire al texto para que no se pegue a las orillas, pero deja la imagen grande */
-.p-info {
-    padding: 20px;
-    text-align: center;
-}
+/* HEADER */
+header { position: fixed; top: 0; width: 100%; background: white; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.top-header { text-align: center; padding: 10px; }
+.main-logo { height: 50px; }
 
-.p-info h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.4rem;
-    color: #333;
-}
+.nav-tabs { display: flex; overflow-x: auto; border-bottom: 3px solid var(--amarillo); background: #fff; scroll-behavior: smooth; }
+.tab-link { background: none; border: none; padding: 15px; font-family: 'Oswald', sans-serif; cursor: pointer; color: #555; font-size: 13px; white-space: nowrap; text-transform: uppercase; }
+.tab-link.active { color: var(--rojo); border-bottom: 4px solid var(--rojo); }
 
-.p-info p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 15px;
-}
+/* CONTENEDOR PRINCIPAL */
+.main-container { padding: 15px; max-width: 650px; margin: auto; }
+.tab-content { display: none; animation: fadeIn 0.4s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.price {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: #e41e26; /* Color rojo para resaltar el precio */
-    display: block;
-}
+.category-title { font-family: 'Oswald', sans-serif; text-align: center; color: var(--rojo); margin: 30px 0 15px; text-transform: uppercase; }
+
+/* GRIDS Y TARJETAS */
+.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.product-card { border-radius: 15px; border: 1px solid #eee; overflow: hidden; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.product-card img { width: 100%; height: 150px; object-fit: cover; }
+.p-info { padding: 10px; text-align: center; }
+.p-info h3 { font-family: 'Oswald', sans-serif; margin: 5px 0; font-size: 16px; }
+.price { color: var(--rojo); font-weight: bold; font-size: 20px; display: block; margin-top: 5px; }
+
+.card-small { text-align: center; border: 1px solid #eee; border-radius: 10px; padding: 10px; }
+.card-small img { width: 100%; height: 100px; object-fit: cover; border-radius: 5px; }
+
+/* SUCURSALES */
+.sucursal-card { background: var(--gris); border-radius: 20px; margin-bottom: 20px; border: 1px solid #ddd; overflow: hidden; }
+.sucursal-card img { width: 100%; height: 180px; object-fit: cover; }
+.suc-info { padding: 15px; text-align: center; }
+.btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.btn-wa { background: #25D366; color: white; text-decoration: none; padding: 10px; border-radius: 20px; font-weight: bold; font-size: 13px; }
+.btn-map { background: #4285F4; color: white; text-decoration: none; padding: 10px; border-radius: 20px; font-weight: bold; font-size: 13px; }
+
+/* CONÓCENOS Y FORMULARIO */
+.about-container { text-align: center; padding: 20px; }
+.about-logo { width: 120px; margin-bottom: 15px; }
+.galeria-simple img { width: 100%; border-radius: 10px; margin-top: 15px; }
+
+.form-container { background: var(--gris); padding: 20px; border-radius: 15px; }
+.form-container input, .form-container select, .form-container textarea { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+.btn-submit { width: 100%; background: var(--rojo); color: white; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+
+/* FOOTER */
+footer { background: var(--oscuro); color: white; text-align: center; padding: 30px; margin-top: 40px; }
+.social-footer { font-size: 24px; margin-bottom: 15px; }
+.social-footer a { color: var(--amarillo); margin: 0 15px; text-decoration: none; }
